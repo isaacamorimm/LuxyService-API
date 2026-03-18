@@ -7,7 +7,7 @@ export class AiService {
   private ai: GoogleGenAI;
 
   constructor(private prisma: PrismaService) {
-    this.ai = new GoogleGenAI({ apiKey: 'AIzaSyAItjiv8BRbHoThmI99wwmA-A4vHvVWv5M' });
+    this.ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
   }
 
   async generateEmbedding(text: string): Promise<number[]> {
