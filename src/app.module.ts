@@ -6,6 +6,8 @@ import configuration from './config/configuration';
 import { UsersModule } from './users/users.module';
 import { ProjectsModule } from './projects/projects.module';
 import { ContactModule } from './contact/contact.module';
+import { PrismaModule } from './prisma/prisma.module';
+import { AiModule } from './ai/ai.module';
 
 @Module({
   imports: [
@@ -16,6 +18,8 @@ import { ContactModule } from './contact/contact.module';
     UsersModule,
     ProjectsModule,
     ContactModule,
+    PrismaModule,
+    AiModule,
   ],
   controllers: [AppController],
   providers: [AppService],

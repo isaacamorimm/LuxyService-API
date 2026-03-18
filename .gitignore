@@ -43,3 +43,5 @@ coverage/
 *.pem
 *.key
 *.cert
+
+/generated/prisma
