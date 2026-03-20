@@ -12,10 +12,13 @@ export class AiService {
 
   async generateEmbedding(text: string): Promise<number[]> {
     try {
-      const response = await this.ai.models.embedContent({
-        model: 'text-embedding-004',
-        contents: text,
-      });
+const response = await this.ai.models.embedContent({
+      model: 'gemini-embedding-001',
+      contents: text, 
+      config: {
+        outputDimensionality: 768,
+      }
+    });
       const values = response.embeddings?.[0]?.values;
       if (!values) throw new Error('No embeddings returned');
       return values;

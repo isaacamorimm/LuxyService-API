@@ -4,8 +4,8 @@ generator client {
 }
 
 datasource db {
-  provider   = "postgresql"
-  extensions = [vector]
+  provider   = "postgresql"   
+  extensions = [pgvector(map: "vector")]
 }
 
 model DocumentContext {

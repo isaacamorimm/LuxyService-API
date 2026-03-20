@@ -1,7 +1,10 @@
 import { Controller, Post, Body } from '@nestjs/common';
 import { AiService } from './ai.service';
+import { IsString, IsNotEmpty } from 'class-validator';
 
 export class ChatDto {
+  @IsString()
+  @IsNotEmpty({message: 'A pergunta não pode estar vazia'})
   question: string;
 }
 
@@ -11,9 +14,6 @@ export class AiController {
 
   @Post('chat')
   async chat(@Body() body: ChatDto) {
-    if (!body.question) {
-      return { error: 'Pergunta obrigatória' };
-    }
     return this.aiService.chat(body.question);
   }
 }
