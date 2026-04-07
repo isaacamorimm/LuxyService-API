@@ -18,7 +18,10 @@ const luxyData = [
   "Serviço de Segurança Eletrônica e Acesso: Arquiteturas avançadas de segurança patrimonial. O escopo inclui CFTV IP de Alta Definição, biometria facial homologada (KeyAccess) e controle de acesso de alto fluxo. Integramos com centrais de monitoramento e NOC.",
   "Serviço de Sistemas Prediais e ETA/ETE: Operação diligente e manutenção de Estações de Tratamento de Água (ETA) e Esgoto (ETE). Nosso corpo de engenharia gerencia coagulação, filtração, desinfecção e gestão sustentável de lodo.",
   "Arquitetura de CFTV IP: Projetamos topologias IP em anel ou estrela, com backbones em fibra óptica e switches PoE+ para zero latência em fluxos de 4K a 8K. Integramos VMS enterprise-grade (Digifort, Milestone) com análises de vídeo como LPR e detecção de perímetro.",
-  "Controle de Acesso Físico Inteligente: Autenticação multifator para liberação de portas, catracas e cancelas. Utilizamos Leitores de Reconhecimento Facial com tecnologia anti-spoofing. Integração nativa com sistemas C-Cure 9000 e Amadeus."
+  "Controle de Acesso Físico Inteligente: Autenticação multifator para liberação de portas, catracas e cancelas. Utilizamos Leitores de Reconhecimento Facial com tecnologia anti-spoofing. Integração nativa com sistemas C-Cure 9000 e Amadeus.",
+  "Informações de Contato da Luxy Service: CNPJ 59.890.956/0001-59. Telefone: (11) 9 9280-1900. Email de Contato: contato@luxysolar.com.br. Email Comercial: comercial@luxysolar.com.br. Endereço: Rua Da Rancheira 170, Jardim Santo Antonio, São Paulo - SP, 08032-220.",
+  "Diretoria da Luxy Service: Bruno Gaspar Pessotti é o Diretor Técnico, contato bruno@luxysolar.com.br. Luís Carlos L. Mesquita Jr. é o Diretor Comercial, contato luis@luxysolar.com.br.",
+  "Descripção da Luxy Service: Engenharia de alta performance para infraestruturas corporativas. Segurança, energia e redes em total sincronia. Oferecemos soluções integradas para climatização, sistemas elétricos, CFTV, tratamento de água e infraestrutura de redes."
 ];
 
 async function main() {
