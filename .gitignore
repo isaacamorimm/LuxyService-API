@@ -45,3 +45,4 @@ coverage/
 *.cert
 
 /generated/prisma
+.pnpm-store/

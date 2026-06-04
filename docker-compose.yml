@@ -29,5 +29,20 @@ services:
     depends_on:
       - db 
 
+  frontend:
+    build:
+      context: ../LuxyService
+    container_name: luxy-frontend
+    ports:
+      - "5174:5174"
+    command: sh -c "pnpm install && pnpm run dev"
+    volumes:
+     - ../LuxyService:/usr/src/app
+     - /usr/src/app/node_modules
+    environment:
+     - CI=true
+    depends_on:
+     - api
+
 volumes:
   luxy-db-data:
