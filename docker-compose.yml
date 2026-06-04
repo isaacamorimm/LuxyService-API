@@ -1,0 +1,33 @@
+services:
+  # Banco de Dados PostgreSQL
+  db:
+    image: postgres:15-alpine
+    container_name: luxy-db
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: rootpassword
+      POSTGRES_DB: luxyservice
+    ports:
+      - "5432:5432" 
+    volumes:
+      - luxy-db-data:/var/lib/postgresql/data 
+
+  # A nossa API NestJS
+  api:
+    build: 
+      context: .
+    container_name: luxy-api
+    ports:
+      - "3000:3000"
+    command: sh -c "pnpm install && pnpm dlx prisma generate && pnpm run start:dev"
+    volumes:
+      - .:/usr/src/app 
+      - /usr/src/app/node_modules 
+    environment:
+      - DATABASE_URL=postgresql://root:rootpassword@db:5432/luxyservice?schema=public
+      - CI=true
+    depends_on:
+      - db 
+
+volumes:
+  luxy-db-data:
