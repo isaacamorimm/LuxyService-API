@@ -46,3 +46,4 @@ coverage/
 
 /generated/prisma
 .pnpm-store/
+.aider*
