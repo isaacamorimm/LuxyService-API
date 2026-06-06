@@ -1,5 +1,4 @@
 import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
 
 @Controller()
 export class AppController {
@@ -12,6 +11,11 @@ export class AppController {
 
   @Get('ping')
   ping() {
-    return { status: 'ok', message: 'pong' };
+    try {
+      return { status: 'ok', message: 'pong' };
+    } catch (error) {
+      console.error('Error in ping endpoint:', error);
+      throw new Error('Internal Server Error');
+    }
   }
 }
