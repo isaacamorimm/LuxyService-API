@@ -12,19 +12,19 @@ export class AiService {
 
   async generateEmbedding(text: string): Promise<number[]> {
     try {
-const response = await this.ai.models.embedContent({
-      model: 'gemini-embedding-001',
-      contents: text, 
-      config: {
-        outputDimensionality: 768,
-      }
-    });
+      const response = await this.ai.models.embedContent({
+        model: 'gemini-embedding-001',
+        contents: text, 
+        config: {
+          outputDimensionality: 768,
+        }
+      });
       const values = response.embeddings?.[0]?.values;
       if (!values) throw new Error('No embeddings returned');
       return values;
     } catch (error) {
       console.error('Error generating embedding:', error);
-      throw new InternalServerErrorException('Failed to generate embedding');
+      throw new InternalServerErrorException('Failed to generate embedding', { cause: error });
     }
   }
 
@@ -82,7 +82,7 @@ RESPONDA DE FORMA NATURAL, PRESTATIVA E PROFISSIONAL.
       };
     } catch (error) {
       console.error('Error in chat processing:', error);
-      throw new InternalServerErrorException('Error processing chat request');
+      throw new InternalServerErrorException('Error processing chat request', { cause: error });
     }
   }
 }

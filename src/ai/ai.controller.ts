@@ -1,12 +1,7 @@
 import { Controller, Post, Body } from '@nestjs/common';
 import { AiService } from './ai.service';
-import { IsString, IsNotEmpty } from 'class-validator';
-
-export class ChatDto {
-  @IsString()
-  @IsNotEmpty({message: 'A pergunta não pode estar vazia'})
-  question: string;
-}
+import { ChatDto } from './dto/chat.dto';
+import { HttpException, HttpStatus } from '@nestjs/common';
 
 @Controller('ai')
 export class AiController {
@@ -14,6 +9,15 @@ export class AiController {
 
   @Post('chat')
   async chat(@Body() body: ChatDto) {
-    return this.aiService.chat(body.question);
+    try {
+      return await this.aiService.chat(body.question);
+    } catch (error) {
+      console.error('Error in AI controller:', error);
+      throw new HttpException({
+        message: 'Erro interno do servidor',
+        statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+        error: error.cause?.name || 'Unknown Error'
+      }, HttpStatus.INTERNAL_SERVER_ERROR, { cause: error });
+    }
   }
 }
