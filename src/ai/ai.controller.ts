@@ -1,6 +1,6 @@
 import { Controller, Post, Body } from '@nestjs/common';
 import { AiService } from './ai.service';
-import { ChatDto } from './dto/chat.dto';
+import { ChatDto } from '../dto/chat.dto'; // Correção do caminho para o DTO
 import { HttpException, HttpStatus } from '@nestjs/common';
 
 @Controller('ai')

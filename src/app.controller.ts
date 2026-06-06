@@ -1,4 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
+import { AppService } from '../app.service'; // Correção do caminho para o serviço
 
 @Controller()
 export class AppController {
