@@ -9,4 +9,14 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello();
   }
+
+  @Get('ping')
+  ping() {
+    try {
+      return { status: 'ok', message: 'pong' };
+    } catch (error) {
+      console.error('Error in ping endpoint:', error);
+      throw new Error('Internal Server Error');
+    }
+  }
 }

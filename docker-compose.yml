@@ -1,0 +1,31 @@
+services:
+  # A nossa API NestJS
+  api:
+    build: 
+      context: .
+    container_name: luxy-api
+    ports:
+      - "3000:3000"
+    command: sh -c "pnpm install && pnpm dlx prisma generate && pnpm run start:dev"
+    volumes:
+      - .:/usr/src/app 
+      - /usr/src/app/node_modules 
+    env_file:
+      - .env
+    environment:
+      - CI=true
+
+  frontend:
+    build:
+      context: ../LuxyService
+    container_name: luxy-frontend
+    ports:
+      - "8080:5174"
+    command: sh -c "pnpm install && pnpm run dev"
+    volumes:
+     - ../LuxyService:/usr/src/app
+     - /usr/src/app/node_modules
+    environment:
+     - CI=true
+    depends_on:
+     - api
